@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,27 +17,32 @@ namespace MyListBox
     /// </summary>
     public partial class MainWindow : Window
     {
+        ObservableCollection<String> result;
         public class Calculate
         {
             public double xStart { get; set; }
             public double xStop { get; set; }
-            public double step { get; set; }
-            public double n { get; set; }  
+            public int step { get; set; }
+            private int n;
+        
+
+        public int N
+            {
+                get { return n; }
+                set
+                {
+                    if (value < 5) { throw new ArgumentException("Value must be greater than 5"); }
+                }
+            }
 
         }
-        
         Calculate calculate;
         public MainWindow()
         {
             InitializeComponent();
             calculate = new Calculate();
             grid.DataContext = calculate;
-
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
