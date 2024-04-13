@@ -1,0 +1,47 @@
+﻿<Window x:Class="MyListBox.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib" 
+        xmlns:local="clr-namespace:MyListBox"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Background="AntiqueWhite">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition  Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Label x:Name="xStartLabel" Content="X start" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+            <Label x:Name="xStopLabel" Content="X stop" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+            <Label x:Name="stepLabel" Content="Step" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+            <Label x:Name="nLabel" Content="N" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
+
+            <TextBox x:Name="xStart" Text="{Binding Path=xStart}" Width="80" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="xStop" Text="{Binding Path=xStop}" Width="80" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="step" Text="{Binding Path=step}" Width="80" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="n" Text="{Binding Path=n}" Width="80" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <Button x:Name="calcButton" Content="Calculate" Width="80" Height="40" Grid.Row="4" Grid.ColumnSpan="2" FontSize="16" Margin="100 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+            
+
+        </Grid>
+        <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center"
+                   VerticalAlignment="Stretch" Background="GreenYellow" />
+        <DockPanel Grid.Column="2">
+            <ListBox Name="List" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Height="400" Width="300">Right Panel</ListBox>
+        </DockPanel>
+    </Grid>
+</Window>
