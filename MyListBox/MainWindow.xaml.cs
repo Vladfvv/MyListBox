@@ -17,7 +17,7 @@ namespace MyListBox
     /// </summary>
     public partial class MainWindow : Window
     {
-        //ObservableCollection<String> result;
+        ObservableCollection<String> results;
         public class Values
         {
             public double xStart { get; set; }
@@ -31,7 +31,8 @@ namespace MyListBox
                 get { return n; }
                 set
                 {
-                    if (value < 5) { throw new ArgumentException("Value must be greater than 5"); }
+                    if (value < 5)  throw new ArgumentException("Value must be greater than 5"); 
+                    n = value;
                 }
             }
 
@@ -42,11 +43,9 @@ namespace MyListBox
             InitializeComponent();
             values = new Values();
             grid.DataContext = values;
+            results = new ObservableCollection<string>();
+            lResults.DataContext = results;
         }
 
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
