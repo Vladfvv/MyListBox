@@ -9,6 +9,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using static MyListBox.MainWindow;
 
 namespace MyListBox
 {
@@ -21,7 +22,7 @@ namespace MyListBox
         public class Values
         {
             public double xStart { get; set; }
-            public double xStop { get; set; }
+            public double xStop {  get; set; }  
             public int step { get; set; }
             private int n;
 
@@ -51,14 +52,24 @@ namespace MyListBox
 
         private void calcButton_Click(object sender, RoutedEventArgs e)
         {
+            if ((values.xStop - values.xStart + 1) / values.step != values.N) throw new ArgumentException("Check your numbers");
+            
+
+
+
             double summa = 0;
+            results.Clear();
+            values.xStart = 0;
+            values.xStop = 0;
+            values.step = 0;
+            values.N = 0;
             values.xStart = double.Parse(xStart.Text);
             values.xStop = double.Parse(xStop.Text);
             values.step = int.Parse(step.Text);
             values.N = int.Parse(n.Text);
-            double yXStart = -1 / 2 * Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2));
+            //double yXStart = -1 / 2 * Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2));
 
-            for (var k = 1; k < values.N; k++)
+            for (var k = 1; k <= values.N; k++)
             {
                 summa += (Math.Pow(values.xStart, k) * Math.Cos(k * Math.PI / 3)) / 3;
                 results.Add("Summa: " + summa);
