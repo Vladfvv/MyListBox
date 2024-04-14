@@ -17,8 +17,8 @@ namespace MyListBox
     /// </summary>
     public partial class MainWindow : Window
     {
-        ObservableCollection<String> result;
-        public class Calculate
+        //ObservableCollection<String> result;
+        public class Values
         {
             public double xStart { get; set; }
             public double xStop { get; set; }
@@ -36,13 +36,17 @@ namespace MyListBox
             }
 
         }
-        Calculate calculate;
+        Values values;
         public MainWindow()
         {
             InitializeComponent();
-            calculate = new Calculate();
-            grid.DataContext = calculate;
+            values = new Values();
+            grid.DataContext = values;
         }
 
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
