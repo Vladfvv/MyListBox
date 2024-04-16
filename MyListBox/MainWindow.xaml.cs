@@ -21,7 +21,7 @@ namespace MyListBox
         ObservableCollection<String> results;
         public class Values
         {
-            public double xStart { get; set; }
+            public double xStart { get; set; } 
             public double xStop {  get; set; }  
             public int step { get; set; }
             private int n;
@@ -59,17 +59,17 @@ namespace MyListBox
 
             double summa = 0;
             //results.Clear();
-            values.xStart = 0;
-            values.xStop = 0;
-            values.step = 0;
-            values.N = 0;
-            values.xStart = double.Parse(xStart.Text);
-            values.xStop = double.Parse(xStop.Text);
-            values.step = int.Parse(step.Text);
-            values.N = int.Parse(n.Text);
+            values.xStart = 0;//не нужно обнулять
+            values.xStop = 0;//не нужно обнулять
+            values.step = 0;//не нужно обнулять
+            values.N = 0;//не нужно обнулять
+            values.xStart = double.Parse(xStart.Text);// задайте переменные name и туда спрарсите значение из xStart
+            values.xStop = double.Parse(xStop.Text);// задайте переменные name и туда спрарсите значение из xStop
+            values.step = int.Parse(step.Text);// задайте переменные name и туда спрарсите значение из step
+            values.N = int.Parse(n.Text);// задайте переменные name и туда спрарсите значение из n
             
 
-            for (var k = 1; k <= values.N; k++)
+            for (var k = 1; k <= values.N; k++)//должно быть два цикла (внешний и внутренний). Во внешнем идет вычисления значения Y(x) и запись значение Y(x) , S(x) в results. Во внутреннем происходит вычисление S(x) на нсновании k и n. Каждый раз в конце выполнения внешнего цикла переменыые, отвечающие за "накопление" значений (S(x), Y(x)) должны обнуляться. 
             {
                 double y = -0.5 * (Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2)));
                 summa += Math.Round((Math.Pow(values.xStart, k) * Math.Cos(k * Math.PI / 3)) / 3, 2);                
