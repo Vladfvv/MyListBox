@@ -65,23 +65,27 @@ namespace MyListBox
             //values.N = 0;
             double start = double.Parse(xStart.Text);
             double stop = double.Parse(xStop.Text);
-            int myStep = int.Parse(step.Text);
-            int iterator = int.Parse(n.Text);
-            
-
-            for (var t = start; start < stop;)
+            double myStep = double.Parse(step.Text);
+            double iterator = double.Parse(n.Text);
+            double s = 0;
+            double y = 0;
+            for (var x = start; x < stop; x += myStep )
             {
-                double y = -0.5 * (Math.Log(1 - 2 * t * Math.Cos(Math.PI / 3) + Math.Pow(t, 2)));                
+                s = 0;                        
 
-                for (var i = 0; i < iterator;)
+                for (var k = 1; k <= iterator; k++)
                 {                    
-                    double s = Math.Round((Math.Pow(t, i) * Math.Cos(t * Math.PI / 3)) / 3, 2);
-                    summa += s;
-                    i += myStep;
-                    results.Add("S(" + i + ") = " + summa + "  y(" + i + ") = " + y);
+                    s += (Math.Pow(x, k) * Math.Cos(k * Math.PI / 3)) / k;                                      
                 }
-                start += myStep;
+                y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
+                results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);
+                
             }         
+        }
+
+        private void lResults_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
+        {
+
         }
     }
 }

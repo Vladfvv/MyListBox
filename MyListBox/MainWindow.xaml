@@ -72,7 +72,7 @@
         <GridSplitter Grid.Column="1" Width="5" HorizontalAlignment="Center"
                    VerticalAlignment="Stretch" Background="GreenYellow" />
         <DockPanel Grid.Column="2">
-            <ListBox x:Name="lResults" ItemsSource="{Binding}"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" Height="400" Width="300"></ListBox>
+            <ListBox x:Name="lResults" ItemsSource="{Binding}" ScrollViewer.VerticalScrollBarVisibility="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20" MinWidth="350"></ListBox>
         </DockPanel>
 
     </Grid>
