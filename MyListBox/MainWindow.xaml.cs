@@ -59,22 +59,28 @@ namespace MyListBox
 
             double summa = 0;
             //results.Clear();
-            values.xStart = 0;
-            values.xStop = 0;
-            values.step = 0;
-            values.N = 0;
-            values.xStart = double.Parse(xStart.Text);
-            values.xStop = double.Parse(xStop.Text);
-            values.step = int.Parse(step.Text);
-            values.N = int.Parse(n.Text);
+            //values.xStart = 0;
+            //values.xStop = 0;
+            //values.step = 0;
+            //values.N = 0;
+            double start = double.Parse(xStart.Text);
+            double stop = double.Parse(xStop.Text);
+            int myStep = int.Parse(step.Text);
+            int iterator = int.Parse(n.Text);
             
 
-            for (var k = 1; k <= values.N; k++)
+            for (var t = start; start < stop;)
             {
-                double y = -0.5 * (Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2)));
-                summa += Math.Round((Math.Pow(values.xStart, k) * Math.Cos(k * Math.PI / 3)) / 3, 2);                
-                results.Add("S(" + k + ") = " + summa + "  y(" + k + ") = " + y);
-                values.xStart += values.step;
+                double y = -0.5 * (Math.Log(1 - 2 * t * Math.Cos(Math.PI / 3) + Math.Pow(t, 2)));                
+
+                for (var i = 0; i < iterator;)
+                {                    
+                    double s = Math.Round((Math.Pow(t, i) * Math.Cos(t * Math.PI / 3)) / 3, 2);
+                    summa += s;
+                    i += myStep;
+                    results.Add("S(" + i + ") = " + summa + "  y(" + i + ") = " + y);
+                }
+                start += myStep;
             }         
         }
     }
