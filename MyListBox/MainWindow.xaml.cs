@@ -52,13 +52,13 @@ namespace MyListBox
 
         private void calcButton_Click(object sender, RoutedEventArgs e)
         {
-            if ((values.xStop - values.xStart + 1) / values.step != values.N) throw new ArgumentException("Check your numbers");
+            //if ((values.xStop - values.xStart + 1) / values.step != values.N) throw new ArgumentException("Check your numbers");
             
 
 
 
             double summa = 0;
-            results.Clear();
+            //results.Clear();
             values.xStart = 0;
             values.xStop = 0;
             values.step = 0;
@@ -67,15 +67,15 @@ namespace MyListBox
             values.xStop = double.Parse(xStop.Text);
             values.step = int.Parse(step.Text);
             values.N = int.Parse(n.Text);
-            //double yXStart = -1 / 2 * Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2));
+            
 
             for (var k = 1; k <= values.N; k++)
             {
-                summa += (Math.Pow(values.xStart, k) * Math.Cos(k * Math.PI / 3)) / 3;
-                results.Add("Summa: " + summa);
-            }
-
-            summa = 0;
+                double y = -0.5 * (Math.Log(1 - 2 * values.xStart * Math.Cos(Math.PI / 3) + Math.Pow(values.xStart, 2)));
+                summa += Math.Round((Math.Pow(values.xStart, k) * Math.Cos(k * Math.PI / 3)) / 3, 2);                
+                results.Add("S(" + k + ") = " + summa + "  y(" + k + ") = " + y);
+                values.xStart += values.step;
+            }         
         }
     }
 }
