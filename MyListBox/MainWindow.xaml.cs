@@ -24,10 +24,10 @@ namespace MyListBox
             public double xStart { get; set; }
             public double xStop {  get; set; }  
             public int step { get; set; }
-            private int n;
+            private double n;
 
 
-            public int N
+            public double N
             {
                 get { return n; }
                 set
@@ -67,16 +67,17 @@ namespace MyListBox
             double y = 0;
             for (var x = start; x < stop; x += myStep )
             {
-                s = 0;
                
-                for (var k = 1; k <= iterator; k++)
-                {
-                    y = 0;
+               
+                for (var k = 1.0; k <= iterator; k += 0.1)
+                {                    
                     s += (Math.Pow(x, k) * Math.Cos(k * Math.PI / 3)) / k;                                      
                 }
-                y = -0.5 * (Math.Pow(Math.E, (1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2))));
-                //y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
-                results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);                
+                //y = -0.5 * (Math.Pow(Math.E, (1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2))));
+                y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
+                results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);
+                s = 0;
+                y = 0;
             }         
         }  
     }
