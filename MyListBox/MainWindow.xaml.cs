@@ -53,11 +53,7 @@ namespace MyListBox
         private void calcButton_Click(object sender, RoutedEventArgs e)
         {
             //if ((values.xStop - values.xStart + 1) / values.step != values.N) throw new ArgumentException("Check your numbers");
-            
-
-
-
-            double summa = 0;
+            //double summa = 0;
             //results.Clear();
             //values.xStart = 0;
             //values.xStop = 0;
@@ -71,21 +67,17 @@ namespace MyListBox
             double y = 0;
             for (var x = start; x < stop; x += myStep )
             {
-                s = 0;                        
-
+                s = 0;
+               
                 for (var k = 1; k <= iterator; k++)
-                {                    
+                {
+                    y = 0;
                     s += (Math.Pow(x, k) * Math.Cos(k * Math.PI / 3)) / k;                                      
                 }
-                y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
-                results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);
-                
+                y = -0.5 * (Math.Pow(Math.E, (1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2))));
+                //y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
+                results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);                
             }         
-        }
-
-        private void lResults_Scroll(object sender, System.Windows.Controls.Primitives.ScrollEventArgs e)
-        {
-
-        }
+        }  
     }
 }
