@@ -23,7 +23,7 @@ namespace MyListBox
         {
             public double xStart { get; set; }
             public double xStop {  get; set; }  
-            public int step { get; set; }
+            public double step { get; set; }
             private double n;
 
 
@@ -59,22 +59,21 @@ namespace MyListBox
             //values.xStop = 0;
             //values.step = 0;
             //values.N = 0;
-            double start = double.Parse(xStart.Text);
-            double stop = double.Parse(xStop.Text);
-            double myStep = double.Parse(step.Text);
-            double iterator = double.Parse(n.Text);
-            double s = 0;
-            double y = 0;
-            for (var x = start; x < stop; x += myStep )
-            {
+            double start = double.Parse(values.xStart.ToString());
+            double stop = double.Parse(values.xStop.ToString());
+            double myStep = double.Parse(values.step.ToString());
+            double iterator = double.Parse(values.N.ToString());
+            double s = 0.0;
+            double y = 0.0;
+            for (var x = start; x <= stop; x += myStep )
+            {              
                
-               
-                for (var k = 1.0; k <= iterator; k += 0.1)
+                for (var k = 1.0; k <= iterator; k++)
                 {                    
-                    s += (Math.Pow(x, k) * Math.Cos(k * Math.PI / 3)) / k;                                      
+                    s += Math.Round((Math.Pow(x, k) * Math.Cos(k * Math.PI / 3)) / k, 3);                                      
                 }
                 //y = -0.5 * (Math.Pow(Math.E, (1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2))));
-                y = -0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2)));
+                y = Math.Round(-0.5 * (Math.Log(1 - 2 * x * Math.Cos(Math.PI / 3) + Math.Pow(x, 2))), 3);
                 results.Add("S(" + x + ") = " + s + "  y(" + x + ") = " + y);
                 s = 0;
                 y = 0;
