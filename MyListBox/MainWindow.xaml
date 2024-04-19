@@ -52,18 +52,13 @@
             <Label x:Name="stepLabel" Content="Step" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
             <Label x:Name="nLabel" Content="N" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="0 0 10 0"/>
 
-            <TextBox x:Name="xStart" Text="{Binding Path=xStart,
-                ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                     Validation.ErrorTemplate="{StaticResource ErrorTempl}" 
+            <TextBox x:Name="xStart" Text="{Binding Path=xStart, Mode=TwoWay}"                     
                      Width="80" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
-            <TextBox x:Name="xStop" Text="{Binding Path=xStop,
-                ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+            <TextBox x:Name="xStop" Text="{Binding Path=xStop, Mode=TwoWay}" 
                      Validation.ErrorTemplate="{StaticResource ErrorTempl}" Width="80" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
-            <TextBox x:Name="step" Text="{Binding Path=step,
-                ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
-                     Validation.ErrorTemplate="{StaticResource ErrorTempl}" Width="80" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
-            <TextBox x:Name="n" Text="{Binding Path=N,
-                ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+            <TextBox x:Name="step" Text="{Binding Path=step, Mode=TwoWay}" 
+                      Width="80" Grid.Row="2" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
+            <TextBox x:Name="n" Text="{Binding Path=N, ValidatesOnExceptions=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                      Validation.ErrorTemplate="{StaticResource ErrorTempl}" Width="80" Grid.Row="3" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"></TextBox>
             <Button x:Name="calcButton" Content="Calculate" Width="80" Height="40" Grid.Row="4" Grid.ColumnSpan="2" FontSize="16" Margin="100 20 0 0" VerticalAlignment="Top" HorizontalAlignment="Left" Click="calcButton_Click"/>
 
