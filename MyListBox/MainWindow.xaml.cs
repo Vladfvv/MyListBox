@@ -86,13 +86,38 @@ namespace MyListBox
             {
                 MessageBox.Show(ex.Message);
             }
+        }
 
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            // Получаем ссылку на TextBox
+            TextBox textBox = sender as TextBox;
+            if (textBox == null)
+                return;
 
+            // Получаем введенное значение
+            string inputText = textBox.Text;
 
+            // Проверяем, что введенное значение - число
+            double result;
+            bool isNumeric = double.TryParse(inputText, out result);
+
+            // Если не число, выдаем сообщение об ошибке
+            if (!isNumeric)
+            {
+                MessageBox.Show("Пожалуйста, введите числовое значение.");
+                // Очищаем TextBox
+                textBox.Clear();
+            }
+            textBox.Text = result.ToString();
+               // double myStep = double.Parse(values.step.ToString());
 
 
         }
+
+
+
 
     }
 }
